@@ -8,9 +8,13 @@ export default function Alert(props) {
     }
     return (
         // ahi props.alert && aaetla mate lakhiyu 6 ke props ni value null thi start thay 6 aetale aano meaning ae thay 6 ke props.alert null hoy to && pachhi nu kai pan return ni thase and props.alert null na hoy to && pachhi nu badhu return thase
-        props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
-            <strong>{capitilize(props.alert.type)}</strong>:{props.alert.msg}
+        // and jo appde aakha code ne haju aek div ma lai ae to niche vada aakha code ne { } ma levu pade.
+        <div style={{height:"50px"}}>
 
+            {props.alert && <div className={`alert alert-${props.alert.type} alert-dismissible fade show`} role="alert">
+                <strong>{capitilize(props.alert.type)}</strong>:{props.alert.msg}
+
+            </div>}
         </div>
 
 

@@ -1,32 +1,41 @@
-import React ,{useState} from 'react'
+import React from 'react'
+// import React ,{useState} from 'react'
 // import { useState } from "react"
 
-export default function About() {
-    const[ mystyle,setMyStyle ]=useState( {
-        color: 'black',
-        backgroundColor: 'white',
-    })
-    const [btntext,setBtntext]=useState('Dark Mode')
-
-    let toggleStyle=()=>{
-        // react ma tripl equval use thay
-        if (mystyle.color==='black') {
-            setMyStyle({
-                color:'white',
-                backgroundColor:'black'
-            })
-            setBtntext('Light Mode')
-            
-        }
-        else{
-            setMyStyle({
-                color: 'black',
-                backgroundColor: 'white'
-            })
-            setBtntext('Dark Mode')
-
-        }
+export default function About(props) {
+    const mystyle = {
+        color: props.mode === 'dark' ? "white" : "black",
+        backgroundColor: props.mode === 'dark' ? "black" : "white"
     }
+
+
+
+    // const[ mystyle,setMyStyle ]=useState( {
+    //     color: 'black',
+    //     backgroundColor: 'white',
+    // })
+    // const [btntext,setBtntext]=useState('Dark Mode')
+
+    // let toggleStyle=()=>{
+    //     // react ma tripl equval use thay
+    //     if (mystyle.color==='black') {
+    //         setMyStyle({
+    //             color:'white',
+    //             backgroundColor:'black'
+    //         })
+    //         setBtntext('Light Mode')
+
+    //     }
+    //     else{
+    //         setMyStyle({
+    //             color: 'black',
+    //             backgroundColor: 'white'
+    //         })
+    //         setBtntext('Dark Mode')
+
+    //     }
+    // }
+
     return (
         <div className='container' style={mystyle}>
             <h1>About Us</h1>
@@ -69,10 +78,12 @@ export default function About() {
                     </div>
                 </div>
             </div>
-            <div className='container2'>
+
+
+            {/* <div className='container2'>
 
                 <button onClick={toggleStyle} className="btn btn-primary mx-1 my-2">{btntext}</button>
-            </div>
+            </div> */}
         </div>
     )
 }

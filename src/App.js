@@ -4,16 +4,17 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 
-// import About from './components/About';
+import About from './components/About';
 import Alert from './components/Alert';
 
-// import {
-//   // first letter in capital
-//   BrowserRouter as Router,
-//   Routes,
-//   Route,
-//   Link
-// } from "react-router-dom";
+import {
+  // first letter in capital
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+
 
 import React, { useState } from 'react';
 function App() {
@@ -22,6 +23,7 @@ function App() {
   const [modename, setModename] = useState('Enable Dark Mode')
   // const[textcolor,setTextcolor]=useState('text-light')
   const [alert, setAlert] = useState(null);
+
 
   const showAlert = (message, type) => {
     setAlert({
@@ -36,6 +38,7 @@ function App() {
 
 
   const toggleMode = () => {
+
     if (mode === 'light') {
       setMode('dark')
       setModename('Enable Light Mode')
@@ -44,6 +47,7 @@ function App() {
       // setTextcolor('light')
       document.title = "Textutils-dark mode";
     }
+
     else {
       setMode('light')
       setModename('Enable Dark Mode')
@@ -54,6 +58,8 @@ function App() {
 
     }
   }
+
+
   const btn2 = () => {
     if (mode === 'light') {
       setMode('#9ac49a')
@@ -62,6 +68,8 @@ function App() {
       showAlert("dark mode has been enable", "success")
       // setTextcolor('light')
     }
+
+
     else {
       setMode('light')
       setModename('Enable Dark Mode')
@@ -75,38 +83,52 @@ function App() {
 
   return (
     <>
-    {/* <Router> */}
+
+
+    <Router>
 
       {/* aa ma je title use karyo 6 ae props tarike use thay 6 */}
       {/* <Navbar title={3}></Navbar> */}
       <Navbar title="textutils" mode={mode} toggleMode={toggleMode} modename={modename} btn2={btn2} ></Navbar>
       {/* <Navbar ></Navbar> */}
-      {/* <Link></Link> */}
+      <Link></Link>
 
       <Alert alert={alert}></Alert>
 
 
       <div className="container my-3">
-        {/* <Routes> */}
+
+
+        <Routes>
+
+        
         {/* perfect aej elemnt no path male */}
       {/* example:-  
           /users-->component-1
           /users/home-->component-2,
           to aama exact na lakhiae and aapdne bijo component access karvo hoy to ae aapde ne pehlo component aapi de
        */}
-        {/* <Route exact path="/about" element={<About />} > */}
+        <Route exact path="/about" element={<About mode={mode} />} >
+        {/* route ma about lakhiyu hoy to niche valu about ni lakhavanu */}
             {/* <About></About> */}
-          {/* </Route> */}
-          {/* <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm>} > */}
-          {/* </Route> */}
-        {/* </Routes> */}
+          </Route>
 
-            <TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm>
+
+
+          <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm>} >
+          </Route>
+
+
+        </Routes>
+
+            {/* <TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm> */}
 
 
         {/* <About></About> */}
       </div>
-    {/* </Router> */}
+
+      
+    </Router>
     </>
   );
 }
