@@ -4,16 +4,16 @@ import './App.css';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 
-import About from './components/About';
+// import About from './components/About';
 import Alert from './components/Alert';
 
-import {
-  // first letter in capital
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+// import {
+//   // first letter in capital
+//   BrowserRouter as Router,
+//   Routes,
+//   Route,
+//   Link
+// } from "react-router-dom";
 
 import React, { useState } from 'react';
 function App() {
@@ -75,41 +75,38 @@ function App() {
 
   return (
     <>
-    <Router>
+    {/* <Router> */}
 
       {/* aa ma je title use karyo 6 ae props tarike use thay 6 */}
       {/* <Navbar title={3}></Navbar> */}
       <Navbar title="textutils" mode={mode} toggleMode={toggleMode} modename={modename} btn2={btn2} ></Navbar>
       {/* <Navbar ></Navbar> */}
-      <Link></Link>
+      {/* <Link></Link> */}
 
       <Alert alert={alert}></Alert>
 
 
       <div className="container my-3">
-        <Routes>
+        {/* <Routes> */}
         {/* perfect aej elemnt no path male */}
       {/* example:-  
           /users-->component-1
           /users/home-->component-2,
           to aama exact na lakhiae and aapdne bijo component access karvo hoy to ae aapde ne pehlo component aapi de
        */}
-        <Route exact path="/about" element={<About />} >
-            {/* <About>
+        {/* <Route exact path="/about" element={<About />} > */}
+            {/* <About></About> */}
+          {/* </Route> */}
+          {/* <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm>} > */}
+          {/* </Route> */}
+        {/* </Routes> */}
 
-            </About> */}
-          </Route>
-          <Route exact path="/" element={<TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm>} >
-
-            {/* <TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm> */}
-          </Route>
-        </Routes>
-
+            <TextForm showAlert={showAlert} mode={mode} heading="Enter text to analyze"></TextForm>
 
 
         {/* <About></About> */}
       </div>
-    </Router>
+    {/* </Router> */}
     </>
   );
 }
